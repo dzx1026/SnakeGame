@@ -5,6 +5,7 @@ public class Snake {
 	private LinkedList<Node> body=new LinkedList<Node>();
 	/**
 	 * 如果食物和头部相邻，则将food这个node加入到body中。为什么相邻就加入？
+	 * 什么时候调用？
 	 * @param food
 	 * @return 返回food的node
 	 */
@@ -27,16 +28,16 @@ public class Snake {
 		Node first=body.getFirst();
 		switch(direction){
 			case UP:
-				body.addFirst(new Node(first.getX()-1,first.getY()));
+				body.addFirst(new Node(first.getX(),first.getY()-1));
 				break;
 			case DOWN:
-				body.addFirst(new Node(first.getX()+11,first.getY()));
-				break;
-			case RIGHT:
 				body.addFirst(new Node(first.getX(),first.getY()+1));
 				break;
+			case RIGHT:
+				body.addFirst(new Node(first.getX()+1,first.getY()));
+				break;
 			case LEFT:
-				body.addFirst(new Node(first.getX()-1,first.getY()-1));
+				body.addFirst(new Node(first.getX()-1,first.getY()));
 				break;
 		}
 		return body.removeLast();

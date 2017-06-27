@@ -20,4 +20,12 @@ public class Node {
 		this.x=x;
 		this.y=y;
 	}
+	/**
+	 * 这个地方要用判断下Object的类型，后面补上。
+	 */
+	@Override
+	public boolean equals(Object other){
+		Node m=(Node)other;             
+		return x==m.getX()&&y==m.getY();
+	}
 }
